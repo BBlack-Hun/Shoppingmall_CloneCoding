@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+
+:root {
+    --gunmetal : #293035;
+    --tearose : #e7c2c5;
+    --pblue : #accaff;
+    --sgray : #74828d;
+    --mint : #93ffb0;
+
+}
+body {
+    font-family: 'Lexend Deca',
+    'Nanum Gothic Coding', monospace,
+    sans-serif,
+    arial;
+    margin: 0;
+    padding: 0;
+}

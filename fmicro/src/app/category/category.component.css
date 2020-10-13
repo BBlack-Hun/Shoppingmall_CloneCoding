@@ -1,0 +1,38 @@
+.heroimg {
+    background-image: url("/var/icngroup/jhkim95/Project/fmicro/src/assets/static/ddp.jpg");
+    height: 30vh;
+    background-size: cover;
+}
+.category-content {
+    height:70vh;
+    background-color: #eee;
+}
+
+.category-label{
+    text-align: center;
+    font-weight: 900;
+    color:var(--sgray);
+    margin: 0;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.category-button {
+    text-align: center;
+}
+
+button {
+    height:50px;
+    width : 250px;
+    margin-top: 20px;
+    border: 0;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--sgray);
+    background-color: var(--tearose);
+}
+
+button.introduction{
+    background-color: var(--pblue) !important;
+}

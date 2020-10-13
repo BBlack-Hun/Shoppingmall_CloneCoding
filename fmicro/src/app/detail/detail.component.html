@@ -1,0 +1,22 @@
+<div class="container">
+    <p>micro shop</p>
+    <div class="label">{{ detail.name }}</div>
+    <div class="detailimage" [ngStyle] = "{ 'background-image': 'url(' + detail.image + ')'}">
+    </div>
+    <div class="detailinfo">
+        <div class="upperinfo">
+            <div class="like">{{detail.like}}명이 좋아합니다.</div>
+            <div class ="price"> USD {{detail.price }} K</div>
+        </div>
+        <div class="ask">
+            <button class="ask">판매자와 연락하기</button>
+        </div>
+        <ul>
+            <li class="detail"> {{detail.detail}}</li>
+            <li>매도인 (구현예정)</li>
+            <li>Address : {{detail.address}}</li>
+            <li>등록일 : {{detail.upload_date | date:short}}</li>
+        </ul>
+    </div>
+    
+</div>

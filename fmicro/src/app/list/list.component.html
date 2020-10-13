@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="listlabel">
+        <h3> {{ category | uppercase }}</h3>
+    </div>
+    <div class="listcontent">
+        <div class="listsorting">
+            <p>추천수</p>
+            <p>가격순</p>
+            <p>최신순</p>
+        </div>
+        <div class="listbox" *ngFor="let data of datalist" routerLink={{data.id}}>
+            <div class="listimage" [ngSytle]= "{ 'background-image': 'url(' + data.image + ')'}">
+                <p>USD {{data.price}}K</p>
+            </div>
+            <div class="listdescribe">
+                <h3>{{data.name}}</h3>
+                <h5>{{data.detail}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

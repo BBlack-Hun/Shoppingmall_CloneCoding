@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="loginlabel">
+        <h4>회원가입을 도와드리겠습니다</h4>
+    </div>
+    <div class="loginform">
+      <input class="username" placeholder="이메일을 입력해주세요" #username><br>
+      <input class="nickname" placeholder="이름을 입력해주세요" #nickname><br>
+      <input class="password" type="password" placeholder="비밀번호를 입력해주세요" #password><br>
+      <input class="password" type="password" placeholder="비밀번호 확인" #passwordcheck><br>
+      <button class="login" (click)="signup(username, nickname, password, passwordcheck)">회원가입</button>
+      <button class="signup">홈으로</button>
+    </div>
+</div>
