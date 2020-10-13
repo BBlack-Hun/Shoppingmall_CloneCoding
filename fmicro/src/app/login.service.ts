@@ -19,7 +19,10 @@ export class LoginService {
   // 로그인 시 아이디와 비밀번호를 백앤드로 전송해서, 토큰을 받아옴.
   obtain_token(credential){
     return this.http.post<string>('api-token-auth/', credential)
-    .pipe(tap(res => this.setToken(res['token'])))
+      .pipe(tap(res => {
+        this.setToken(res['token'])
+      }
+    ))
   }
   // obtain_token을 통해 받은 토큰을 로컬 저장소에 저장함.
   setToken(token){

@@ -1,0 +1,33 @@
+ul{
+    padding: 0 15px;
+}
+li{
+    list-style: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 3px;
+}
+.message-info{
+    display: flex;
+    color: #777;
+}
+.message-info>h4{
+    width: 100%;
+    margin: 0;
+    font-weight: 300;
+    flex: 2.5;
+}
+.message-info>h5{
+    margin: 0;
+    flex: 1;
+    font-weight: 300;
+}
+.message-contents>h5{
+    margin: 5px 0;
+}
+.date{
+    margin: 0;
+    text-align: right;
+    color: #ccc;
+}

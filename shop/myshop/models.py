@@ -18,7 +18,7 @@ class MyUserManager(BaseUserManager):                                   # 유저
     
     # 일반 유저 생성 _create_user를 사용함.
     def create_user(self, email, name, password, **kwargs):             # 일반유저 샣성
-        kwargs.setdefault('is_amdin', False)
+        kwargs.setdefault('is_admin', False)
         return self._create_user(email, name, password, **kwargs)
     
     # 관리자 계정 생성
@@ -83,6 +83,22 @@ class Real_estate(models.Model):
     upload_date = models.DateTimeField(default=timezone.now)    # timezone import
     category = models.ForeignKey(Category, null=False, on_delete=models.CASCADE)
     address = models.TextField(max_length=300, null=False)
-    like = models.IntegerField(default=0)
+    likecount = models.IntegerField(default=0)
+
+    LikeUser = models.ManyToManyField(MyUser, blank=True, related_name="LikeUser",  through="Like", through_fields=('realestate_post', 'user'))
     def __str__(self):
         return self.name
+    
+class Like(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    realestate_post = models.ForeignKey(Real_estate, on_delete=models.CASCADE)
+
+class Message(models.Model):
+    sender = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name="sender")
+    receiver = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name="receiver")
+    real_estate = models.ForeignKey(Real_estate, on_delete=models.CASCADE)
+    message = models.TextField(max_length=300, null=False)
+    send_time = models.DateTimeField(default=timezone.now)
+    recent_msg = models.BooleanField(default=False)
+    def __str(self):
+        return ("[{0}]{1} -> {2}(@{3})".format(self.recent_msg, self.sender, self.receiver, self.real_estate))

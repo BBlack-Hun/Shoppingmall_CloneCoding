@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
 
   signup(username, nickname, password, passwordcheck){
     if(password.value == passwordcheck.value){
-      const signupinfo = {username: username.value, password: password.value, nickname: nickname.vlaue}
+      const signupinfo = {username: username.value, password: password.value, nickname: nickname.value}
       this.Login.signup(signupinfo).subscribe(
         response =>{
           if (response=="email Error"){
@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
           }
           else {
             alert("가입완료 되었습니다")
-            this.router.navigate(['Login'])
+            this.router.navigate(['login'])
           }
         }
       )

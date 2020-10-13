@@ -4,8 +4,8 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Category, Real_estate, MyUserManager, MyUser
-from .serializer import CateSerializer, RS_Serializer, RS_detail_Serializer
+from .models import Category, Real_estate, MyUserManager, MyUser, Like, Message
+from .serializer import CateSerializer, RS_Serializer, RS_detail_Serializer, Message_Serializer
 
 # Create your views here.
 
@@ -80,3 +80,27 @@ class Signup(APIView):
             password = request.data['password']
             MyUser.objects.create_user(email=email, name=name, password=password)
             return Response(email)
+
+class Recommand(APIView):
+    def post(self, request, id, format=None):
+        queryset = Real_estate.objects.get(id = id)
+        user_email = requset.data['username']
+        user = MyUser.objects.get(email = user_email)
+        Recommand_object = Like.objects.filter(user=user, realestate_post = queryset)
+        if Recommand_object.count() >=1:
+            Recommand_object.delete()
+        else:
+            Like.objects.create(user=user, realestate_port = queryset)
+        queryset.likecount = Like.objects.filter(realestate_port = queryset).count()
+        print(queryset.likecount)
+        queryset.save()
+        return Response("success")
+
+class RecentMessage(APIView):
+    def get(self, request, format=None):
+        user = request.headers['Username']
+        queryset_receiver = Message.objects.filter(receiver__email=user, recent_msg=True)
+        queryset_sender = Message.objects.filter(sender__email=user, recent_msg=True)
+        queyrset_total = queryset_receiver | queryset_sender
+        serializer = Message_Serializer(queyrset_total, many=True)
+        return Response(serializer.data)

@@ -1,0 +1,16 @@
+<div class="container">
+    <ul>
+        <h3>Recent Message</h3>
+
+        <li *ngFor="let message of message">
+            <div class="message-info">
+                <h4>@{{ message.real_estate}}({{message.sender}})</h4>
+            </div>
+            <div class="message-contents">
+                <h5>message.message}}</h5>
+            </div>
+            <h5 class ="date">{{message.sned_time | date:short}}</h5>
+        </li>
+    </ul>
+
+</div>

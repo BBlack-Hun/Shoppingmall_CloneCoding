@@ -1,11 +1,28 @@
 <div class="container">
-    <p>micro shop</p>
+    <div class="navbar">
+        <i class="fas fa-arrow-left" routerLink="../"></i>
+        <p routerLink="../../../category">micro shop</p>
+        <i class="fas fa-bars login-nav" (click)="menuclick()"></i>
+        
+    </div>
+    <div class="slidemenu" [style.display]="menustat">
+        <ul>
+            <li routerLink="../../../login"><h4> > 로그인</h4></li>
+            <li routerLink="../../../"><h4> > 홈으로</h4></li>
+            <li routerLink="../../landmark"><h4> > 랜드마크</h4></li>
+            <li routerLink="../../residential"><h4> > 주거용</h4></li>
+            <li routerLink="../../commercial"><h4> > 상업용</h4></li>
+        </ul>
+    </div>
     <div class="label">{{ detail.name }}</div>
     <div class="detailimage" [ngStyle] = "{ 'background-image': 'url(' + detail.image + ')'}">
     </div>
     <div class="detailinfo">
         <div class="upperinfo">
-            <div class="like">{{detail.like}}명이 좋아합니다.</div>
+            <div class="like">
+                <i class="far fa-heart" [class.fas]="detail.LikeUser.includes(user_id)" (click)="recommend()"></i>
+                {{ detail.likecount }}명이 좋아합니다.
+            </div>
             <div class ="price"> USD {{detail.price }} K</div>
         </div>
         <div class="ask">
