@@ -6,6 +6,7 @@ import { LoginService } from '../login.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { of } from 'rxjs';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-detail',

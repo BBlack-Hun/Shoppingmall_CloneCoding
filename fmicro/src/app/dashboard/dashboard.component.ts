@@ -26,7 +26,9 @@ export class DashboardComponent implements OnInit {
   }
 
   selectMenu(menu){
-    this.selectedMenu = menu
+    this.selectedMenu = menu;
+    console.log("selectedMenu:", this.selectedMenu)
+    console.log("menu", this.menu)
   }
 
 }

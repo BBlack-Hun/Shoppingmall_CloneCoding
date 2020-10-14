@@ -59,7 +59,7 @@ export class MENU{
         tokenGetter: tokenGetter,
         allowedDomains: ['api-token-auth'],
       }
-    })
+    }),
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

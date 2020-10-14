@@ -84,14 +84,14 @@ class Signup(APIView):
 class Recommand(APIView):
     def post(self, request, id, format=None):
         queryset = Real_estate.objects.get(id = id)
-        user_email = requset.data['username']
+        user_email = request.data['username']
         user = MyUser.objects.get(email = user_email)
         Recommand_object = Like.objects.filter(user=user, realestate_post = queryset)
         if Recommand_object.count() >=1:
             Recommand_object.delete()
         else:
-            Like.objects.create(user=user, realestate_port = queryset)
-        queryset.likecount = Like.objects.filter(realestate_port = queryset).count()
+            Like.objects.create(user=user, realestate_post = queryset)
+        queryset.likecount = Like.objects.filter(realestate_post = queryset).count()
         print(queryset.likecount)
         queryset.save()
         return Response("success")

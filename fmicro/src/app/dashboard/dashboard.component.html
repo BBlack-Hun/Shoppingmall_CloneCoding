@@ -6,8 +6,8 @@
     </div>
 </div>
 <div class="board">
-    <div class="board-menu" *ngFor="let menu of menu" [class.selected]="menu===seelctedMenu">
-        <i class={{menu.icon}} routerLink={{menu.name}} (click)="selectedMenu(menu)"></i>
+    <div class="board-menu" *ngFor="let menu of menu" [class.selected]="menu===selectedMenu">
+        <i class={{menu.icon}} routerLink={{menu.name}} (click)="selectMenu(menu)"></i>
     </div>
 </div>
 <router-outlet></router-outlet>

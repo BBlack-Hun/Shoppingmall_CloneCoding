@@ -19,10 +19,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(username, password) {
-    const credential = {email:username.value, password: password.value}
+    const credential = {email: username.value, password: password.value}
     this.Login.obtain_token(credential)
     .subscribe(
       response => {
+        console.log(username.value, password.value),
         this.location.back()
       },
       response => alert("다시 시도해주세요.")
